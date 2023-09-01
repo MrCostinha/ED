@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-int tamanho(char *palavra, int i) {
-    if (*(palavra+i) == '\0') {
-        return i;
+void mostrar(char *palavra) {
+    if (*palavra != '\0') {
+        mostrar(palavra + 1);
+        printf("%c", *palavra);
     }
-    return tamanho(palavra, i+1);
 }
 
 int main() {
-    printf("%d", tamanho("Estrutura de Dados", 0));
+    mostrar("Estrutura de Dados");
 
     return 0;
 }

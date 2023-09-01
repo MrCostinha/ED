@@ -11,7 +11,7 @@ float serieS(int n) {
     if (n == 1) {
         return 1;
     } else {
-        return 1.0/fatorial(n)*1.0 + 1.0/serieS(n-1)*1.0;
+        return 1.0/fatorial(n) + 1.0/serieS(n-1);
     }
 }
 

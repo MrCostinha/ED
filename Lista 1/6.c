@@ -1,15 +1,14 @@
 #include <stdio.h>
 
-void mostrar(char *palavra, int i) {
-    if (*(palavra+i) == '\0') { // palavra[i] == caractere nulo
-        return;
+void mostrar(char *palavra) {
+    if (*palavra != '\0') { // \0 == caractere nulo
+        printf("%c", *palavra);
+        mostrar(palavra + 1);
     }
-    printf("%c", *(palavra+i));
-    mostrar(palavra, i+1);
 }
 
 int main() {
-    mostrar("Estrutura de Dados", 0);
+    mostrar("Estrutura de Dados");
 
     return 0;
 }
