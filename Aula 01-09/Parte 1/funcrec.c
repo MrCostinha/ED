@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int tamanho(char *string){
     if(string[0] == '\0')
         return 0;

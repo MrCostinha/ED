@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include "funcrec.h"
 
-int tamanho(char *string);
+/* int tamanho(char *string);
 int ocorrencia(char *string, char letra);
 void imprime(char *string);
-void imprimeReverso(char *string);
+void imprimeReverso(char *string); */
 
 int main() {
     char *str = "Matheus";
