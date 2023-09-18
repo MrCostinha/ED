@@ -5,7 +5,8 @@
 #include "ponto.h"
 
 struct circulo {
-    float x, y, r;
+    Ponto *ponto;
+    float raio;
 };
 
 Circulo* circ_cria(float x, float y, float r) {
@@ -16,41 +17,46 @@ Circulo* circ_cria(float x, float y, float r) {
     	exit(1);
     }
 
-    c->x = x;
-    c->y = y;
-    c->r = r;
+    c->ponto = cria(x, y);
+    c->raio = r;
 
     return c;
 }
 
 void circ_libera(Circulo *c) {
+    libera(c->ponto);
     free(c);
 }
 float circ_area(Circulo *c) {
-    return 3.14159265 * (c->r * c->r);
+    return pi * (c->raio * c->raio);
 }
 float circunferencia(Circulo *c) {
-    return 2*3.14159265 * c->r;
+    return 2*pi * c->raio;
 }
 void alteraRaio(Circulo *c, float r) {
-    c->r = r;
+    if (r > 0) {
+        c->raio = r;
+    } else {
+        printf("Valor do raio inválido!");
+    }
 }
 void alteraPonto(Circulo *c, float x, float y) {
-    c->x = x;
-    c->y = y;
+    atribui(c->ponto, x, y);
 }
 void acessaCirculo(Circulo *c, Ponto *p, float *r) {
-    acessa(p, &c->x, &c->y);
-    *r = c->r;
+    float x, y;
+
+    acessa(c->ponto, &x, &y);
+    atribui(p, x, y);
+    *r = c->raio;
 }
 void mostraElementosCirculo(Circulo *c) {
-    printf("Raio do círculo: %.2f\n", c->r);
+    printf("Raio do círculo: %.2f\n", c->raio);
     printf("Área do círculo: %.2f\n", circ_area(c));
     printf("Circunferência do círculo: %.2f\n", circunferencia(c));
 }
 int circ_interior(Circulo *c, Ponto *p) {
-    float d = distancia(p, cria(c->x, c->y));
-    if (d < c->r) {
+    if (distancia(c->ponto, p) < c->raio) {
         return 1;
     } else {
         return 0;

@@ -1,5 +1,6 @@
 // TAD: Circulo
 #include "ponto.h"
+#define pi 3.14159265
 
 // Tipo exportado
 typedef struct circulo Circulo;
