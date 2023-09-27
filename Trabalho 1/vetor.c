@@ -33,8 +33,7 @@ float acessa(Vetor* v, int i) {
     return i;
 }
 void atribui(Vetor* v, int i, float c) {
-    i = v->tamanho;
-    c = v->elementos[i];
+    v->elementos[i] = c;
 }
 void maior(Vetor* v) {
     int maior = 0;
@@ -62,7 +61,7 @@ void listarVetor(Vetor* v) {
     printf("}\n");
 }
 float somaVetor(Vetor* v) {
-    float soma = 0;
+    float soma = 0.0;
 
     for (int i = 0; i < v->tamanho; i++) {
     	soma += v->elementos[i];
@@ -71,7 +70,7 @@ float somaVetor(Vetor* v) {
     return soma;
 }
 float somaElementos(Vetor* v, int n) {
-    float soma = 0;
+    float soma = 0.0;
 
     for (int i = 0; i < n; i++) {
     	soma += v->elementos[i];
@@ -88,7 +87,7 @@ Vetor* somaVetores(Vetor* v1, Vetor* v2) {
     Vetor* v3 = criaVetor(v1->tamanho);
 
     for (int i = 0; i < v1->tamanho; i++) {
-        v3->elementos[i] = v1->elementos[i] + v2->elementos[i];
+        atribui(v3, i, v1->elementos[i] + v2->elementos[i]);
     }
 
     return v3;
