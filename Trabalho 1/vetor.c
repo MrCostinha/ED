@@ -87,7 +87,7 @@ Vetor* somaVetores(Vetor* v1, Vetor* v2) {
 
     Vetor* v3 = criaVetor(v1->tamanho);
 
-    for (int i = 0; i < v1->elementos; i++) {
+    for (int i = 0; i < v1->tamanho; i++) {
         v3->elementos[i] = v1->elementos[i] + v2->elementos[i];
     }
 
@@ -101,7 +101,7 @@ Vetor* mostrarSomaVetores(Vetor* v1, Vetor* v2) {
 
     Vetor* v3 = criaVetor(v1->tamanho);
 
-    for (int i = 0; i < v1->elementos; i++) {
+    for (int i = 0; i < v1->tamanho; i++) {
         v3->elementos[i] = v1->elementos[i] + v2->elementos[i];
     }
 
