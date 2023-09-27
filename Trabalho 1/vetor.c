@@ -108,9 +108,8 @@ void mostrarSomaVetores(Vetor* v1, Vetor* v2) {
 
     printf("v1 = ");
     listarVetor(v1);
-    printf("\nv2 = ");
+    printf("v2 = ");
     listarVetor(v2);
-    printf("\n");
 
     for(int i = 0; i < v1->tamanho; i++) {
         printf("\t%.1f + %.1f = %.1f\n", v1->elementos[i], v2->elementos[i], v1->elementos[i]+v2->elementos[i]);

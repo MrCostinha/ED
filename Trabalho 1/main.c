@@ -17,35 +17,35 @@ int main() {
 
     printf("Vetor A = ");
     listarVetor(v1);
-    printf("Maior elemento: %.1f\n", maior(v1));
-    printf("Menor elemento: %.1f\n", menor(v1));
-    printf("Soma dos 2 primeiros elementos: %.1f\n", somaElementos(v1, 2));
-    printf("Soma de todos os elementos: %.1f\n", somaVetor(v1));
+    printf("Maior elemento = %.1f\n", maior(v1));
+    printf("Menor elemento = %.1f\n", menor(v1));
+    printf("Soma dos 2 primeiros elementos = %.1f\n", somaElementos(v1, 2));
+    printf("Soma de todos os elementos = %.1f\n", somaVetor(v1));
     printf("\n");
 
-    printf("Vetor B: ");
+    printf("Vetor B = ");
     listarVetor(v2);
-    printf("Maior elemento: %.1f\n", maior(v2));
-    printf("Menor elemento: %.1f\n", menor(v2));
-    printf("Soma dos 2 primeiros elementos: %.1f\n", somaElementos(v2, 2));
-    printf("Soma de todos os elementos: %.1f\n", somaVetor(v2));
+    printf("Maior elemento = %.1f\n", maior(v2));
+    printf("Menor elemento = %.1f\n", menor(v2));
+    printf("Soma dos 2 primeiros elementos = %.1f\n", somaElementos(v2, 2));
+    printf("Soma de todos os elementos = %.1f\n", somaVetor(v2));
     printf("\n");
 
-    printf("Vetor C: ");
+    printf("Vetor C = ");
     listarVetor(v3);
-    printf("Maior elemento: %.1f\n", maior(v3));
-    printf("Menor elemento: %.1f\n", menor(v3));
-    printf("Soma dos 2 primeiros elementos: %.1f\n", somaElementos(v3, 2));
-    printf("Soma de todos os elementos: %.1f\n", somaVetor(v3));
+    printf("Maior elemento = %.1f\n", maior(v3));
+    printf("Menor elemento = %.1f\n", menor(v3));
+    printf("Soma dos 2 primeiros elementos = %.1f\n", somaElementos(v3, 2));
+    printf("Soma de todos os elementos = %.1f\n", somaVetor(v3));
     printf("\n\n");
 
-    printf("Soma dos vetores A e B = \n");
+    printf("Soma dos vetores A e B:\n");
     mostrarSomaVetores(v1, v2);
-    printf("A + B = ");
+    printf("\nA + B = ");
     listarVetor(somaVetores(v1, v2));
     printf("\n");
 
-    printf("Soma dos vetores A e C = \n");
+    printf("Soma dos vetores A e C:\n");
     mostrarSomaVetores(v1, v3);
 
     liberaVetor(v1);
