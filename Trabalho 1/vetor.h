@@ -45,4 +45,4 @@ saída
 4.5 + 10.0 = 14.5
 7.0 + 8.5 = 15.5
 A função deverá verificar se os vetores passados tem o mesmo tamanho. */
-Vetor* mostrarSomaVetores(Vetor* v1, Vetor* v2);
+void mostrarSomaVetores(Vetor* v1, Vetor* v2);

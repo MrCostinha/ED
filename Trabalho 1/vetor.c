@@ -11,7 +11,7 @@ struct vetor { // Definição do tipo estruturado (2ª)
 Vetor* criaVetor(int n) {
     Vetor* v = (Vetor*) malloc(sizeof(Vetor));
 
-    if (v == NULL){
+    if (v == NULL){ // Verifica v foi alocado corretamente
     	printf("Memoria insuficiente!\n");
     	exit(1);
     }
@@ -19,18 +19,22 @@ Vetor* criaVetor(int n) {
     v->tamanho = n;
     v->elementos = (float*) malloc(n * sizeof(float));
 
+    if (v->elementos == NULL){ // Verifica se os elementos de v foram alocados corretamente
+    	printf("Memoria insuficiente!\n");
+    	exit(1);
+    }
+
     return v;
 }
 void liberaVetor(Vetor* v) {
+    free(v->elementos);
     free(v);
 }
 int tamanhoVetor(Vetor* v) {
     return v->tamanho;
 }
 float acessa(Vetor* v, int i) {
-    i = v->tamanho;
-
-    return i;
+    return v->elementos[i];
 }
 void atribui(Vetor* v, int i, float c) {
     v->elementos[i] = c;
@@ -60,7 +64,7 @@ float menor(Vetor* v) {
 void listarVetor(Vetor* v) {
     printf("{ ");
     for (int i = 0; i < v->tamanho; i++) {
-    	printf("%f ", v->elementos[i]);
+    	printf("%.1f ", v->elementos[i]);
     }
     printf("}\n");
 }
@@ -91,26 +95,24 @@ Vetor* somaVetores(Vetor* v1, Vetor* v2) {
     Vetor* v3 = criaVetor(v1->tamanho);
 
     for (int i = 0; i < v1->tamanho; i++) {
-        atribui(v3, i, v1->elementos[i] + v2->elementos[i]);
+        atribui(v3, i, v1->elementos[i]+v2->elementos[i]);
     }
 
     return v3;
 }
-Vetor* mostrarSomaVetores(Vetor* v1, Vetor* v2) {
+void mostrarSomaVetores(Vetor* v1, Vetor* v2) {
     if (v1->tamanho != v2->tamanho) {
     	printf("Vetores com tamanho diferente!\n");
     	exit(1);
     }
 
-    Vetor* v3 = criaVetor(v1->tamanho);
-
-    for (int i = 0; i < v1->tamanho; i++) {
-        v3->elementos[i] = v1->elementos[i] + v2->elementos[i];
-    }
+    printf("v1 = ");
+    listarVetor(v1);
+    printf("\nv2 = ");
+    listarVetor(v2);
+    printf("\n");
 
     for(int i = 0; i < v1->tamanho; i++) {
-        printf("\t%f + %f = %f\n", v1->elementos[i], v2->elementos[i], v3->elementos[i]);
+        printf("\t%.1f + %.1f = %.1f\n", v1->elementos[i], v2->elementos[i], v1->elementos[i]+v2->elementos[i]);
     }
-
-    return v3;
 }
