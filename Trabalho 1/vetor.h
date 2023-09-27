@@ -6,7 +6,7 @@
    TAD Vetor: Implementação de um vetor de números reais com as seguintes operações
 principais visíveis ao usuário:
 */
-// Redefinição do tipo exportado (3ª. Matheus)
+// Redefinição do tipo exportado (3ª)
 typedef struct vetor Vetor;
 
 // Funções exportadas (1ª. Matheus)
@@ -21,9 +21,9 @@ float acessa(Vetor* v, int i);
 // atribui: Função que atribui um conteúdo c a uma determinada posição i do vetor.
 void atribui(Vetor* v, int i, float c);
 // maior: Função que retorna o maior elementos do vetor.
-void maior(Vetor* v);
+float maior(Vetor* v);
 // menor: Função que retorna o menor elementos do vetor.
-void menor(Vetor* v);
+float menor(Vetor* v);
 /* listar: Função que lista todos os elementos do vetor. A listagem deve se apresentar
 de forma organizada como uma lista na mesma linha. */
 void listarVetor(Vetor* v);

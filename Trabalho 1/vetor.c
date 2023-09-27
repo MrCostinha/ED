@@ -3,7 +3,7 @@
 
 #include "vetor.h"
 
-struct vetor {
+struct vetor { // Definição do tipo estruturado (2ª)
     int tamanho;
     float *elementos;
 };
@@ -35,26 +35,30 @@ float acessa(Vetor* v, int i) {
 void atribui(Vetor* v, int i, float c) {
     v->elementos[i] = c;
 }
-void maior(Vetor* v) {
-    int maior = 0;
+float maior(Vetor* v) {
+    int indexMaior = 0; // define o primeiro elemento como o maior
 
     for (int i = 1; i < v->tamanho; i++) {
-    	if (v->elementos[i] > v->elementos[maior]) {
-    		maior = v->elementos[i];
+    	if (v->elementos[i] > v->elementos[indexMaior]) {
+    		indexMaior = i;
     	}
     }
+
+    return v->elementos[indexMaior];
 }
-void menor(Vetor* v) {
-    int menor = 0;
+float menor(Vetor* v) {
+    int indexMenor = 0; // define o primeiro elemento como o menor
 
     for (int i = 1; i < v->tamanho; i++) {
-    	if (v->elementos[i] < v->elementos[menor]) {
-    		menor = v->elementos[i];
+    	if (v->elementos[i] < v->elementos[indexMenor]) {
+    		indexMenor = i;
     	}
     }
+
+    return v->elementos[indexMenor];
 }
 void listarVetor(Vetor* v) {
-    printf("Vetor: { ");
+    printf("{ ");
     for (int i = 0; i < v->tamanho; i++) {
     	printf("%f ", v->elementos[i]);
     }
@@ -105,7 +109,7 @@ Vetor* mostrarSomaVetores(Vetor* v1, Vetor* v2) {
     }
 
     for(int i = 0; i < v1->tamanho; i++) {
-        printf("%f + %f = %f\n", v1->elementos[i], v2->elementos[i], v3->elementos[i]);
+        printf("\t%f + %f = %f\n", v1->elementos[i], v2->elementos[i], v3->elementos[i]);
     }
 
     return v3;
