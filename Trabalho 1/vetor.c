@@ -3,16 +3,21 @@
 
 #include "vetor.h"
 
-struct vetor { // Definição do tipo estruturado (2ª)
+struct vetor { // Definição do tipo estruturado
     int tamanho;
     float *elementos;
 };
 
 Vetor* criaVetor(int n) {
+    if (n <= 0) {
+        printf("Tamanho deve ser maior que zero!\n");
+        exit(1);
+    }
+
     Vetor* v = (Vetor*) malloc(sizeof(Vetor));
 
-    if (v == NULL){ // Verifica v foi alocado corretamente
-    	printf("Memoria insuficiente!\n");
+    if (v == NULL){ // Verifica se v foi alocado corretamente
+    	printf("Memória insuficiente!\n");
     	exit(1);
     }
 
@@ -20,7 +25,7 @@ Vetor* criaVetor(int n) {
     v->elementos = (float*) malloc(n * sizeof(float));
 
     if (v->elementos == NULL){ // Verifica se os elementos de v foram alocados corretamente
-    	printf("Memoria insuficiente!\n");
+    	printf("Memória insuficiente!\n");
     	exit(1);
     }
 
@@ -34,6 +39,11 @@ int tamanhoVetor(Vetor* v) {
     return v->tamanho;
 }
 float acessa(Vetor* v, int i) {
+    if (i < 0 || i >= v->tamanho) {
+        printf("Entrada inválida!\n");
+        exit(1);
+    }
+
     return v->elementos[i];
 }
 void atribui(Vetor* v, int i, float c) {
@@ -78,6 +88,11 @@ float somaVetor(Vetor* v) {
     return soma;
 }
 float somaElementos(Vetor* v, int n) {
+    if (n < 0 || n > v->tamanho-1) {
+        printf("Entrada inválida!\n");
+        exit(1);
+    }
+
     float soma = 0.0;
 
     for (int i = 0; i < n; i++) {
@@ -87,8 +102,12 @@ float somaElementos(Vetor* v, int n) {
     return soma;
 }
 Vetor* somaVetores(Vetor* v1, Vetor* v2) {
+    if (v1 == NULL || v2 == NULL) {
+        printf("Vetor atribuído não existe!\n");
+        exit(1);
+    }
     if (v1->tamanho != v2->tamanho) {
-    	printf("Vetores com tamanho diferente!\n");
+    	printf("Vetores com tamanhos diferentez!\n");
     	exit(1);
     }
 
@@ -101,8 +120,12 @@ Vetor* somaVetores(Vetor* v1, Vetor* v2) {
     return v3;
 }
 void mostrarSomaVetores(Vetor* v1, Vetor* v2) {
+    if (v1 == NULL || v2 == NULL) {
+        printf("Vetor atribuído não existe!\n");
+        exit(1);
+    }
     if (v1->tamanho != v2->tamanho) {
-    	printf("Vetores com tamanho diferente!\n");
+    	printf("Vetores com tamanhos diferentes!\n");
     	exit(1);
     }
 

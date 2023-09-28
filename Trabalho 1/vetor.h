@@ -6,10 +6,10 @@
    TAD Vetor: Implementação de um vetor de números reais com as seguintes operações
 principais visíveis ao usuário:
 */
-// Redefinição do tipo exportado (3ª)
+// Redefinição do tipo exportado
 typedef struct vetor Vetor;
 
-// Funções exportadas (1ª. Matheus)
+// Funções exportadas
 // cria: Função que cria um vetor de tamanho n.
 Vetor* criaVetor(int n);
 // libera: Função que libera a memória alocada para um vetor.
